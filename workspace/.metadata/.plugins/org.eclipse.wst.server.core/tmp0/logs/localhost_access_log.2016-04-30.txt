@@ -27,3 +27,17 @@
 0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:29:40 -0300] "GET /PrimeiraServlet/js/bootstrap.min.js HTTP/1.1" 200 36868
 0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:29:40 -0300] "GET /PrimeiraServlet/css/bootstrap.min.css HTTP/1.1" 200 121260
 0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:30:26 -0300] "GET /PrimeiraServlet/cadastrar?primeiroNome=&segundoNome=&telefone=&celular=&sexo=M&estado=SP HTTP/1.1" 404 1001
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:36:30 -0300] "GET /PrimeiraServlet/formulario HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:36:35 -0300] "GET /PrimeiraServlet/formulario2 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:36:35 -0300] "GET /PrimeiraServlet/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:36:35 -0300] "GET /PrimeiraServlet/js/bootstrap.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:39:56 -0300] "GET /PrimeiraServlet/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:40:08 -0300] "GET /PrimeiraServlet/formulario2 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:40:08 -0300] "GET /PrimeiraServlet/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:40:08 -0300] "GET /PrimeiraServlet/js/bootstrap.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:40:10 -0300] "GET /PrimeiraServlet/formulario3 HTTP/1.1" 404 1005
+127.0.0.1 - - [30/Apr/2016:15:40:54 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:40:54 -0300] "GET /PrimeiraServlet/formulario3 HTTP/1.1" 200 2707
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:41:11 -0300] "GET /PrimeiraServlet/formulario3 HTTP/1.1" 200 2707
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:41:11 -0300] "GET /PrimeiraServlet/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [30/Apr/2016:15:41:11 -0300] "GET /PrimeiraServlet/js/bootstrap.min.js HTTP/1.1" 304 -
