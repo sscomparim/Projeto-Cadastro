@@ -28,20 +28,10 @@ public class UsuarioDao extends Dao<Usuario> {
 			
 			
 			PreparedStatement pstm = conn.prepareStatement(sql.toString());
-			
-			// os paremetros iniciam de 1
-			pstm.setString(1, object.getPrimeiroNome());
-			pstm.setString(2, object.getSegundoNome());
-			pstm.setDate(3, new java.sql.Date(object.getDataNascimento().getTime() ) );
-			pstm.setString(4, object.getEmail());
 
-			// execute a query
-			pstm.execute();
 			
 		} catch (Exception e) {
-			
-				// Imprime se der erro
-				e.printStackTrace();
+				
 			
 		
 		}
