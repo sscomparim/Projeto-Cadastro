@@ -1,0 +1,13 @@
+package br.com.clarify.model;
+
+import java.util.Date;
+
+public class usuario {
+
+	private int id;
+	private String primeiroNome;
+	private String segundoNome;
+	private Date dataNascimento;
+	private String email;
+	
+}

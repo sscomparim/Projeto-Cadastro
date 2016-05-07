@@ -1,0 +1,10 @@
+package br.com.clarify.util;
+
+import com.sun.corba.se.spi.legacy.connection.Connection;
+
+public class DbUtil {
+
+	private Connection connection;
+	  
+	
+}
