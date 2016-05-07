@@ -20,4 +20,3 @@ import java.util.List;
 	abstract public void delete(int id);
 	
 	}	
- 
