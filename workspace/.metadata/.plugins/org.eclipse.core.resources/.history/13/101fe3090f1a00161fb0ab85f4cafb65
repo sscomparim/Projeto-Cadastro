@@ -49,6 +49,10 @@ public class UsuarioController extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id")); //
 			
 			//System.out.println(id);
+			
+			
+			
+			
 			Usuario usuario = usuarioDao.find(id); // Busquei o usuario
 			request.setAttribute("usuario", usuario);
 

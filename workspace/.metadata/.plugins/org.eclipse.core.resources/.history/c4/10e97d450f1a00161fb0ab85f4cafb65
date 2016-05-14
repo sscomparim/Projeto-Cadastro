@@ -58,10 +58,9 @@ public class UsuarioDao extends Dao<Usuario> {
 			PreparedStatement pst = conn.prepareStatement(
 					"SELECT * FROM usuarios WHERE id = ? ");
 			 
-			pst.setInt(1, id); 
 			ResultSet rs = pst.executeQuery();
-			  
-			  
+			pst.setInt(1, id);  
+			
 			if (rs.next()){
 			user = getUsuario(rs);
 			} 

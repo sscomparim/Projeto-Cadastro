@@ -11,7 +11,7 @@ import br.com.clarify.util.DbUtil;
 public class UsuarioDao extends Dao<Usuario> {
 
 	private Connection conn = null;
-	 
+	
 	public UsuarioDao() {
 		this.conn = DbUtil.getConnection();
 	}
@@ -58,13 +58,10 @@ public class UsuarioDao extends Dao<Usuario> {
 			PreparedStatement pst = conn.prepareStatement(
 					"SELECT * FROM usuarios WHERE id = ? ");
 			 
-			pst.setInt(1, id); 
 			ResultSet rs = pst.executeQuery();
-			  
-			  
-			if (rs.next()){
+			pst.setInt(1, id);  
+			
 			user = getUsuario(rs);
-			} 
 			
 		} catch (Exception e) {
 			e.printStackTrace();

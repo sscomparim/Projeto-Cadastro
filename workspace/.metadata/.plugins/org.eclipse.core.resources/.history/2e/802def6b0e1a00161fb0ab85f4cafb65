@@ -39,16 +39,25 @@ public class UsuarioController extends HttpServlet {
 
 		if (action.equalsIgnoreCase("delete")) {
 			forward = LIST_USER;
-			int id = Integer.parseInt(request.getParameter("id")); // pega o id a ser excluido
+			int id = Integer.parseInt(request.getParameter("id")); // pega o id
+																	// a ser
+																	// excluido
 			usuarioDao.delete(id); // deleta conforme o ID
-			request.setAttribute("usuarios", usuarioDao.findAll()); // Retorna para view todos os usuarios
-		
+			request.setAttribute("usuarios", usuarioDao.findAll()); // Retorna
+																	// para view
+																	// todos os
+																	// usuarios
+
 		} else if (action.equalsIgnoreCase("edit")) {
 
 			forward = INSERT_OR_EDIT;
 			int id = Integer.parseInt(request.getParameter("id")); //
 			
 			//System.out.println(id);
+			
+			
+			
+			
 			Usuario usuario = usuarioDao.find(id); // Busquei o usuario
 			request.setAttribute("usuario", usuario);
 

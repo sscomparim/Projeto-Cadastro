@@ -123,3 +123,13 @@
 0:0:0:0:0:0:0:1 - - [14/May/2016:16:49:31 -0300] "GET /Clarify/index.jsp HTTP/1.1" 200 1144
 0:0:0:0:0:0:0:1 - - [14/May/2016:16:49:48 -0300] "POST /Clarify/UsuarioController HTTP/1.1" 200 3391
 0:0:0:0:0:0:0:1 - - [14/May/2016:16:49:53 -0300] "GET /Clarify/UsuarioController?action=edit&id=2 HTTP/1.1" 200 1145
+127.0.0.1 - - [14/May/2016:17:04:22 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:04:23 -0300] "GET /Clarify/index.jsp HTTP/1.1" 200 1144
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:04:47 -0300] "POST /Clarify/UsuarioController HTTP/1.1" 200 3826
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:04:50 -0300] "GET /Clarify/UsuarioController?action=edit&id=2 HTTP/1.1" 200 1145
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:08:11 -0300] "GET /Clarify/ HTTP/1.1" 200 1144
+127.0.0.1 - - [14/May/2016:17:08:34 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:08:36 -0300] "GET /Clarify/index.jsp HTTP/1.1" 200 1144
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:08:53 -0300] "GET /Clarify/ HTTP/1.1" 200 1144
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:09:19 -0300] "POST /Clarify/UsuarioController HTTP/1.1" 200 4264
+0:0:0:0:0:0:0:1 - - [14/May/2016:17:09:20 -0300] "GET /Clarify/UsuarioController?action=edit&id=2 HTTP/1.1" 200 1161
