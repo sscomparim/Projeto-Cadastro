@@ -23,9 +23,9 @@ public class UsuarioDao extends Dao<Usuario> {
 
 		try {
 			StringBuilder sql = new StringBuilder("");
-			sql.append("INSERT INTO Usuarios ");
-			sql.append("primeiro_nome , segundo_nome, data_nascimento, email )");
-			sql.append("VALEUS ( ? , ? , ? , ? ) " );	
+			sql.append("INSERT INTO Usuarios     ");
+			sql.append("(primeiro_nome , segundo_nome, data_nascimento, email )   ");
+			sql.append( "VALUES ( ? , ? , ? , ? )    " );	
 			
 			
 			PreparedStatement pstm = conn.prepareStatement(sql.toString());
@@ -41,22 +41,23 @@ public class UsuarioDao extends Dao<Usuario> {
 			
 		} catch (Exception e) {
 			
-				// Imprime se der erro
-				e.printStackTrace();
+				System.out.println(e.getMessage());
+				//e.printStackTrace();
 			
 		
 		}
 		
-	}
+	} 
 
 	@Override
 	public Usuario find(int id) {
 		Usuario user = new Usuario();
+		System.out.println(id);
 		
 		try {
 			PreparedStatement pst = conn.prepareStatement(
 					"SELECT * FROM usuarios WHERE id = ? ");
-			
+			 
 			ResultSet rs = pst.executeQuery();
 			pst.setInt(1, id);  
 			
@@ -68,7 +69,7 @@ public class UsuarioDao extends Dao<Usuario> {
 		
 		
 		
-		return null;
+		return user;
 	}
 	
 	@Override
@@ -86,7 +87,7 @@ public class UsuarioDao extends Dao<Usuario> {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Erro ao listar");
 		}
 		
 		 return usuarios; 
@@ -98,10 +99,10 @@ public class UsuarioDao extends Dao<Usuario> {
 		
 		try {
 			user.setId(rs.getInt("id"));
-			user.setPrimeiroNome(rs.getString("primeiroNome"));
-			user.setSegundoNome(rs.getString("segundoNome"));
+			user.setPrimeiroNome(rs.getString("primeiro_nome"));
+			user.setSegundoNome(rs.getString("segundo_nome"));
 			user.setEmail(rs.getString("email"));
-			user.setDataNascimento(rs.getDate("dataNascimento"));
+			user.setDataNascimento(rs.getDate("data_nascimento"));
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -110,18 +111,16 @@ public class UsuarioDao extends Dao<Usuario> {
 		return user;
 	}
 
-
+ 
 
 	@Override
 	public void update(Usuario object) {
 
-		StringBuilder sql = new StringBuilder("");
 				StringBuilder sql = new StringBuilder("");
 				sql.append(" UPDATE usuarios set primeiro_nome = ? , ");
 				sql.append(" segundo_nome = ? , email = ? , data_nascimento = ? ");
 				sql.append(" WHERE id = ? ");
 
-			
 				try {
 					
 					PreparedStatement pst = conn.prepareStatement(sql.toString() );
@@ -138,10 +137,25 @@ public class UsuarioDao extends Dao<Usuario> {
 				}
 	}
 
+	
+	
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 		
+		
+		StringBuilder sql = new StringBuilder("");
+		sql.append(" DELETE FROM usuarios ");
+		sql.append(" WHERE id = ? ");
+
+		try {
+			
+			PreparedStatement pst = conn.prepareStatement(sql.toString() );
+			pst.setInt(1, id);
+			pst.execute();
+
+	}catch (Exception e){
+		e.printStackTrace();
+	}
 	}
 
 	

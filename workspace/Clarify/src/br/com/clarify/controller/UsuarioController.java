@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.jws.WebService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ import br.com.clarify.dao.UsuarioDao;
 import br.com.clarify.model.Usuario;
 
 
-@WebServlet("/UsuarioControllers")
+@WebServlet("/UsuarioController")
 public class UsuarioController extends HttpServlet {
 
 	/**
@@ -23,7 +23,7 @@ public class UsuarioController extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static String INSERT_OR_EDIT = "/usuario.jsp";
-	private static String LIST_USER = "/ListarUsuarios.jsp";
+	private static String LIST_USER = "/listarUsuarios.jsp";
 	private static UsuarioDao usuarioDao;
 
 	public UsuarioController() {
@@ -35,7 +35,7 @@ public class UsuarioController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String forward = "";
-		String action = request.getParameter("Action");
+		String action = request.getParameter("action");
 
 		if (action.equalsIgnoreCase("delete")) {
 			forward = LIST_USER;
@@ -52,6 +52,12 @@ public class UsuarioController extends HttpServlet {
 
 			forward = INSERT_OR_EDIT;
 			int id = Integer.parseInt(request.getParameter("id")); //
+			
+			//System.out.println(id);
+			
+			
+			
+			
 			Usuario usuario = usuarioDao.find(id); // Busquei o usuario
 			request.setAttribute("usuario", usuario);
 
@@ -73,9 +79,9 @@ public class UsuarioController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{ 
 		
 		
-		Usuario user = new Usuario();
-		user.setPrimeiroNome("primeiroNome");
-		user.setSegundoNome("segundoNome");
+		Usuario user = new Usuario(); 
+		user.setPrimeiroNome(request.getParameter("primeiroNome"));
+		user.setSegundoNome(request.getParameter("segundoNome"));
 		 
 		try {
 			
@@ -86,9 +92,9 @@ public class UsuarioController extends HttpServlet {
 		} catch (java.text.ParseException e) {
 				e.printStackTrace();
 		}
-		user.setEmail(request.getParameter("Email")); 
+		user.setEmail(request.getParameter("email")); 
 		String userId = request.getParameter("id");
-		
+		 
 	
 	if (userId ==null || userId.isEmpty() ){
 		usuarioDao.create(user);

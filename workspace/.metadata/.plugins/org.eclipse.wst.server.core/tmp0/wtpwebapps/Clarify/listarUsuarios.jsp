@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri=http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri=http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,8 +16,8 @@
 		
 		<h1>Usuarios</h1>
 
-		<table=border="1">
-			<thead>	<! -- Cabeçalho da tabela -->
+		<table border="1">
+			<thead>	<!-- Cabeçalho da tabela -->
 				<tr>
 					<th>ID</th>
 					<th>PRIMEIRO NOME</th> 
@@ -28,27 +28,31 @@
 					
 				</tr>
 			</thead> 
-				<tbody><! -- Corpo da tabela -->
-					<c:forEach items=""usuarios var=""usuario> <!-- for para percorrer todos os objetos recebidos -->
-						<tr> <!"-- LINHA -->
+				<tbody><!-- Corpo da tabela -->
+					<c:forEach items="${usuarios}" var="usuario"> <!-- for para percorrer todos os objetos recebidos -->
+						<tr> <!-- LINHA -->
 							<td><c:out value="${usuario.id }" /> </td>
 							<td><c:out value="${usuario.primeiroNome }" /> </td>
 							<td><c:out value="${usuario.segundoNome }" /> </td>
-							<td><c:fmt:formatDate pattern="dd/MM/yyyy" value="${usuario.dataNascimento }" /> </td>
+							<td><fmt:formatDate pattern="dd/MM/yyyy" value ="${usuario.dataNascimento}" /> </td>
+							
 							<td><c:out value="${usuario.email }" /> </td>
 							
-							<td><a ref="UsuarioController?action=edit&id=<c:out value"${usuario.id} "/>">Atualizar</a></td>
-							<td><a ref="UsuarioController?action=edit&id=<c:out value"${usuario.id} "/>">Deletar</a></td>			
+							<td><a href="UsuarioController?action=edit&id=<c:out value="${usuario.id}" /> "> Atualizar</a></td>
+							<td><a href="UsuarioController?action=delete&id=<c:out value="${usuario.id}" /> "> Deletar</a></td>
+							
+							 
+							 			 
 						</tr>
 					</c:forEach>
 				</tbody>
 		</table>
 		
 		  
-		<p><a ref=UsuarioController?action=inserir">Adicionar usuario</a></p>
+		<p><a href="UsuarioController?action=inserir">Adicionar usuario</a></p>
 		
 		
-		
+	</div>	
 
 </body>
 </html>
