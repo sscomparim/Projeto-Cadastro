@@ -131,7 +131,7 @@ public class UsuarioDao extends Dao<Usuario> {
 					pst.setDate(4, new java.sql.Date(object.getDataNascimento().getTime()) );
 					pst.setInt(5, object.getId() );
 					pst.executeUpdate();
-					 
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace(); 

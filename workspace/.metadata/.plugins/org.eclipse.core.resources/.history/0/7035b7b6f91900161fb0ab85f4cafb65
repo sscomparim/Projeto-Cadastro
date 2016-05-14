@@ -124,18 +124,19 @@ public class UsuarioDao extends Dao<Usuario> {
 			
 				try {
 					
-					PreparedStatement pst = conn.prepareStatement(sql.toString() );
-					pst.setString(1, object.getPrimeiroNome() );
-					pst.setString(2, object.getSegundoNome() );
-					pst.setString(3,  object.getEmail() );
+					PreparedStatement pst = conn.prepareStatement(sql.toString());
+					pst.setString(1, object.getPrimeiroNome());
+					pst.setString(2, object.getSegundoNome());
+					pst.setString(3,  object.getEmail());
 					pst.setDate(4, new java.sql.Date(object.getDataNascimento().getTime()) );
-					pst.setInt(5, object.getId() );
+					pst.setInt(5, object.getId());
 					pst.executeUpdate();
-					 
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace(); 
 				}
+		
 	}
 
 	@Override

@@ -56,10 +56,8 @@ public class UsuarioDao extends Dao<Usuario> {
 		try {
 			PreparedStatement pst = conn.prepareStatement(
 					"SELECT * FROM usuarios WHERE id = ? ");
-			
 			ResultSet rs = pst.executeQuery();
-			pst.setInt(1, id);  
-			
+			  
 			user = getUsuario(rs);
 			
 		} catch (Exception e) {
@@ -113,29 +111,9 @@ public class UsuarioDao extends Dao<Usuario> {
 
 
 	@Override
-	public void update(Usuario object) {
-
-		StringBuilder sql = new StringBuilder("");
-				StringBuilder sql = new StringBuilder("");
-				sql.append(" UPDATE usuarios set primeiro_nome = ? , ");
-				sql.append(" segundo_nome = ? , email = ? , data_nascimento = ? ");
-				sql.append(" WHERE id = ? ");
-
-			
-				try {
-					
-					PreparedStatement pst = conn.prepareStatement(sql.toString() );
-					pst.setString(1, object.getPrimeiroNome() );
-					pst.setString(2, object.getSegundoNome() );
-					pst.setString(3,  object.getEmail() );
-					pst.setDate(4, new java.sql.Date(object.getDataNascimento().getTime()) );
-					pst.setInt(5, object.getId() );
-					pst.executeUpdate();
-					 
-					
-				} catch (Exception e) {
-					e.printStackTrace(); 
-				}
+	public void update(Usuario t) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
