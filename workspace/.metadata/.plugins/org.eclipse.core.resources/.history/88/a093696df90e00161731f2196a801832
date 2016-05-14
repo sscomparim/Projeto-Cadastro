@@ -1,9 +1,0 @@
-package br.com.clarify.webdevelopers;
-
-import javax.servlet.http.HttpServlet;
-
-public class Exemplo extends HttpServlet {
-
-	
-	
-}

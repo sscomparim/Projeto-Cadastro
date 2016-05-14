@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;resp&apos; in &apos;br.com.clarify.controller.UsuarioController.doPost(...)&apos; to &apos;response&apos;&#x0D;&#x0A;- Original project: &apos;Clarify&apos;&#x0D;&#x0A;- Original element: &apos;br.com.clarify.controller.UsuarioController.doPost(HttpServletRequest, HttpServletResponse).resp&apos;&#x0D;&#x0A;- Renamed element: &apos;resp&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;resp&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;br.com.clarify.controller{UsuarioController.java[UsuarioController~doPost~QHttpServletRequest;~QHttpServletResponse;@resp!2079!2102!2099!2102!QHttpServletResponse;!0!true" name="response" references="true" stamp="1463230654434" version="1.0"/>
+</session>

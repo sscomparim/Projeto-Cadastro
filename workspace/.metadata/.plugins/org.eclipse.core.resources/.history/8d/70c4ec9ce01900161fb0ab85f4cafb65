@@ -1,0 +1,108 @@
+package br.com.clarify.controller;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.jws.WebService;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import br.com.clarify.dao.UsuarioDao;
+import br.com.clarify.model.Usuario;
+
+
+@WebService("/UsuarioControllers")
+public class UsuarioController extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static String INSERT_OR_EDIT = "/usuario.jsp";
+	private static String LIST_USER = "/ListarUsuarios.jsp";
+	private static UsuarioDao usuarioDao;
+
+	public UsuarioController() {
+		super();
+		usuarioDao = new UsuarioDao();
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String forward = "";
+		String action = request.getParameter("Action");
+
+		if (action.equalsIgnoreCase("delete")) {
+			forward = LIST_USER;
+			int id = Integer.parseInt(request.getParameter("id")); // pega o id
+																	// a ser
+																	// excluido
+			usuarioDao.delete(id); // deleta conforme o ID
+			request.setAttribute("usuarios", usuarioDao.findAll()); // Retorna
+																	// para view
+																	// todos os
+																	// usuarios
+
+		} else if (action.equalsIgnoreCase("edit")) {
+
+			forward = INSERT_OR_EDIT;
+			int id = Integer.parseInt(request.getParameter("id")); //
+			Usuario usuario = usuarioDao.find(id); // Busquei o usuario
+			request.setAttribute("usuario", usuario);
+
+		} else if (action.equalsIgnoreCase("listarUsuario")) {
+			forward = LIST_USER;
+			request.setAttribute("usuarios", usuarioDao.findAll());
+
+		} else {
+			forward = INSERT_OR_EDIT;
+
+		}
+		// rediriciona para view
+		RequestDispatcher view = request.getRequestDispatcher(forward);
+		view.forward(request, response);
+	}
+	
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{ 
+		
+		
+		Usuario user = new Usuario();
+		user.setPrimeiroNome("primeiroNome");
+		user.setSegundoNome("segundoNome");
+		 
+		try {
+			
+			Date data = new SimpleDateFormat("dd/MM/yyyy").
+					parse(request.getParameter("dataNascimento"));
+					user.setDataNascimento(data);
+			
+		} catch (java.text.ParseException e) {
+				e.printStackTrace();
+		}
+		user.setEmail(request.getParameter("Email")); 
+		String userId = request.getParameter("id");
+		
+	
+	if (userId ==null || userId.isEmpty() ){
+		usuarioDao.create(user);
+		
+	}else {
+		user.setId (Integer.valueOf(userId) );
+		usuarioDao.update( user );		
+	}
+	
+	RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
+	request.setAttribute("usuarios", usuarioDao.findAll());
+	view.forward(request, response);
+	
+	
+	
+	
+	}
+}

@@ -1,18 +1,21 @@
 package br.com.clarify.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.jws.WebService;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.catalina.connector.Request;
-
 import br.com.clarify.dao.UsuarioDao;
 import br.com.clarify.model.Usuario;
 
+
+@WebServlet("/UsuarioControllers")
 public class UsuarioController extends HttpServlet {
 
 	/**
@@ -63,5 +66,44 @@ public class UsuarioController extends HttpServlet {
 		// rediriciona para view
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
+	}
+	
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{ 
+		
+		
+		Usuario user = new Usuario();
+		user.setPrimeiroNome("primeiroNome");
+		user.setSegundoNome("segundoNome");
+		 
+		try {
+			
+			Date data = new SimpleDateFormat("dd/MM/yyyy").
+					parse(request.getParameter("dataNascimento"));
+					user.setDataNascimento(data);
+			
+		} catch (java.text.ParseException e) {
+				e.printStackTrace();
+		}
+		user.setEmail(request.getParameter("Email")); 
+		String userId = request.getParameter("id");
+		
+	
+	if (userId ==null || userId.isEmpty() ){
+		usuarioDao.create(user);
+		
+	}else {
+		user.setId (Integer.valueOf(userId) );
+		usuarioDao.update( user );		
+	}
+	
+	RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
+	request.setAttribute("usuarios", usuarioDao.findAll());
+	view.forward(request, response);
+	
+	
+	
+	
 	}
 }
