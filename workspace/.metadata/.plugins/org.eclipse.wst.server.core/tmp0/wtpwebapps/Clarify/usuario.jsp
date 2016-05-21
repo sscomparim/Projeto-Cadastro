@@ -21,11 +21,11 @@
 	<form action="UsuarioController" name="frmAddUser" method="POST">
 	
 	ID: <input type="text" readonly="readonly"name="id" value="<c:out value="${usuario.id}"/>" > <br />
-	Primeira Nome: <input type="text" name="primeiroNome" value="<c:out value="${user.primeiroNome}"/>"  > <br />
-	segundo Nome: <input type="text" name="segundoNome" value="<c:out value="${user.segundoNome}"/>"  > <br />
+	Primeira Nome: <input type="text" name="primeiroNome" value="<c:out value="${usuario.primeiroNome}"/>"  > <br />
+	segundo Nome: <input type="text" name="segundoNome" value="<c:out value="${usuario.segundoNome}"/>"  > <br />
 	Data de Nascimento: <input type="text" name="dataNascimento" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${usuario.dataNascimento}" />"  > <br />
 	Email: <input type="text" name="email" value="<c:out value="${usuario.email}"/>"  > <br />
-	<input type="submit" value="enviar">
+	<input type="submit" value="enviar"> 
 	
 	</form>
 
