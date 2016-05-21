@@ -1,19 +1,18 @@
 package br.com.clarify.dao;
 
 import java.sql.Connection;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import br.com.clarify.model.Aluno;
-import br.com.clarify.model.Usuario;
 import br.com.clarify.util.DbUtil;
 
-
+ 
 public class AlunoDao extends Dao<Aluno> {
 
 	
@@ -22,8 +21,8 @@ public class AlunoDao extends Dao<Aluno> {
 	public AlunoDao() { 
 		this.conn = DbUtil.getConnection();
 	}
-	
-	
+	 
+	 
 	/**
 	 * 
 	 * Metodo responsavel por inserir o Aluno no banco de dados
@@ -50,24 +49,26 @@ public class AlunoDao extends Dao<Aluno> {
 			// os paremetros iniciam de 1
 			pstm.setString(1, object.getPrimeiroNome());
 			pstm.setString(2, object.getSegundoNome());
-			pstm.setString(4, object.getEmail());
-			pstm.setString(5, object.getCurso());
-			pstm.setString(6, object.getCpf());
-			pstm.setString(7, object.getRg());
+			pstm.setString(3, object.getEmail());
+			pstm.setString(4, object.getCurso());
+			pstm.setString(5, object.getCpf());
+			pstm.setString(6, object.getRg());
 
 			// execute a query
 			pstm.execute();
 			
 		} catch (Exception e) {
 			
-				System.out.println( "Erro no cadastrto do aluno: " + e.getMessage());
+				System.out.println( "Erro no cadastro do aluno: " + e.getMessage());
 		
 		}
 		
 		
 	}
-
+ 
 	
+	// Seria um codigo da pessoa, casa usuario recebe um id.
+
 	@Override
 	public Aluno find(int id) {
 
@@ -128,8 +129,7 @@ public class AlunoDao extends Dao<Aluno> {
 		return user;
 		
 	}
-
-
+ 
 
 
 	/**
@@ -167,38 +167,65 @@ public class AlunoDao extends Dao<Aluno> {
 		return alunos;
 	}
 
-	   
 	
-	
-	
-	
-	
-	
-	
+	 
 	@Override
-	public void update(Aluno t) {
-
+	public void update(Aluno object) {
+ 
+		
+		
+		
 		StringBuilder sql = new StringBuilder("");
-		sql.append(" UPDATE usuarios set primeiro_nome = ? , ");
-		sql.append(" se undo_nome = ? , email = ? ,          ");
-		sql.append("curso = ? , cpf = ? , rg = ?  ,			 ");
+		sql.append(" UPDATE alunos set primeiro_nome = ? ,   ");
+		sql.append(" segundo_nome = ? , email = ? ,          ");
+		sql.append("curso = ? , cpf = ? , rg = ?      		 ");
 		sql.append("WHERE id = ?							 ");
 		
-		
-		try {
+		 
+		try{
+			
+			PreparedStatement pst = conn.prepareStatement(sql.toString() );  
+			pst.setString(1, object.getPrimeiroNome());
+			pst.setString(2, object.getSegundoNome());
+			pst.setString(3, object.getEmail());
+			pst.setString(4, object.getCurso());
+			pst.setString(5, object.getCpf());
+			pst.setString(6, object.getRg());
+			pst.setInt(7, object.getId() );
+			pst.executeUpdate();
 			
 		} catch (Exception e) {
-			
-			PreparedStatement  
+			System.out.println("Erro ao atualizar : " +e.getMessage() ); 
 			
 		}
 		
-		
 	}
 
+	
+
+	
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		
+		
+		StringBuilder sql = new StringBuilder("");
+		sql.append(" DELETE FROM alunos ");
+		sql.append(" WHERE id = ?");
+		
+		try {
+			
+			PreparedStatement pst = conn.prepareStatement(sql.toString() );
+			pst.setInt(1, id);
+			pst.execute();
+			 
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+			
+		
 		
 	}
 

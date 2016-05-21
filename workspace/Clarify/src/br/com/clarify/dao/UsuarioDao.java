@@ -16,7 +16,7 @@ public class UsuarioDao extends Dao<Usuario> {
 		this.conn = DbUtil.getConnection();
 	}
 	
-	
+	 
 	
 	@Override
 	public void create(Usuario object) {
@@ -107,6 +107,7 @@ public class UsuarioDao extends Dao<Usuario> {
 	
 	private Usuario getUsuario(ResultSet rs) {
 
+
 		Usuario user = new Usuario();
 		 
 		try {
@@ -123,15 +124,6 @@ public class UsuarioDao extends Dao<Usuario> {
 		return user;
 	} 
 
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
  
 	@Override

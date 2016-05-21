@@ -1,7 +1,5 @@
 package br.com.clarify.model;
 
-import java.util.Date;
-
 public class Aluno extends Usuario{
 
 	 

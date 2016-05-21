@@ -1,0 +1,49 @@
+package br.com.clarify.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.com.clarify.dao.AlunoDao;
+import br.com.clarify.dao.UsuarioDao;
+
+
+@WebServlet("/AlunoController")
+public class AlunoController extends HttpServlet{
+
+private static final long serialVersionUID = 1L;
+private static String INSERT_OR_EDIT = "/usuario.jsp";
+private static String LIST_USER = "/listarUsuarios.jsp";
+private static AlunoDao alunoDao;
+	
+	// qual o objetivo desse construtor
+	public AlunoController(){
+		super();
+		alunoDao = new AlunoDao();
+	}
+
+			@Override
+			protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+				String forward = "";
+				String action = request.getParameter("action");
+			
+				
+			if (action.equalsIgnoreCase("delete")) {
+				forward = LIST_USER;
+				int id = Integer.parseInt(request.getParameter("id"));
+				
+				
+				
+			}
+				
+			
+		
+			super.doGet(request, response);
+			}
+	
+}

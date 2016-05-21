@@ -1,6 +1,7 @@
 package br.com.clarify.controller;
 
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,44 +14,48 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.com.clarify.dao.UsuarioDao;
 import br.com.clarify.model.Usuario;
-
-
+ 
+  
 @WebServlet("/UsuarioController")
 public class UsuarioController extends HttpServlet {
-
+ 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private static String INSERT_OR_EDIT = "/usuario.jsp";
-	private static String LIST_USER = "/listarUsuarios.jsp";
-	private static UsuarioDao usuarioDao;
+private static final long serialVersionUID = 1L;
+private static String INSERT_OR_EDIT = "/usuario.jsp";
+private static String LIST_USER = "/listarUsuarios.jsp";
+private static UsuarioDao usuarioDao;
 
-	public UsuarioController() {
-		super();
+	public UsuarioController() { 
+		super(); 
 		usuarioDao = new UsuarioDao();
-	}
-
-	@Override
+	}   
+  
+	
+	@Override 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	throws ServletException, IOException {
 		String forward = "";
 		String action = request.getParameter("action");
-
+ 
 		if (action.equalsIgnoreCase("delete")) {
 			forward = LIST_USER;
 			int id = Integer.parseInt(request.getParameter("id")); // pega o id a ser excluido
 			usuarioDao.delete(id); // deleta conforme o ID
 			request.setAttribute("usuarios", usuarioDao.findAll()); // Retorna para view todos os usuarios
 		
+			
 		} else if (action.equalsIgnoreCase("edit")) {
-
 			forward = INSERT_OR_EDIT;
 			int id = Integer.parseInt(request.getParameter("id")); //
 			
 			//System.out.println(id);
 			Usuario usuario = usuarioDao.find(id); // Busquei o usuario
 			request.setAttribute("usuario", usuario);
+			
+			
+			
 
 		} else if (action.equalsIgnoreCase("listarUsuario")) {
 			forward = LIST_USER;
@@ -64,10 +69,11 @@ public class UsuarioController extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
-	
-	
+ 
+	 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{ 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	throws ServletException, IOException{ 
 		
 		
 		Usuario user = new Usuario(); 
@@ -87,6 +93,9 @@ public class UsuarioController extends HttpServlet {
 		String userId = request.getParameter("id");
 		 
 	
+		
+		
+		
 	if (userId ==null || userId.isEmpty() ){
 		usuarioDao.create(user);
 		
@@ -104,3 +113,7 @@ public class UsuarioController extends HttpServlet {
 	
 	}
 }
+
+    
+  
+  

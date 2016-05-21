@@ -1,0 +1,64 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+    
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head> 
+<body>   
+	
+	<div class="container"> 
+	
+		
+		<h1>Alunos</h1>
+
+		<table border="1">
+			<thead>	<!-- Cabeçalho da tabela -->
+				<tr>
+					<th>ID</th>
+					<th>PRIMEIRO NOME</th> 
+					<th>SEGUNDO NOME</th>
+					<th>EMAIL</th>
+					<th>CURSO</th> 
+					<th>CPF</th>
+					<th>RG</th>
+					<th colspan="2">AÇÃO</th>
+					
+				</tr> 
+			</thead> 
+				<tbody><!-- Corpo da tabela -->
+					<c:forEach items="${alunos}" var="aluno"> <!-- for para percorrer todos os objetos recebidos -->
+						<tr> <!-- LINHA -->
+							<td><c:out value="${aluno.id }" /> </td>
+							<td><c:out value="${aluno.primeiroNome }" /> </td>
+							<td><c:out value="${aluno.segundoNome }" /> </td>	
+							<td><c:out value="${aluno.email }" /> </td>
+							<td><c:out value="${aluno.curso }" /> </td>	
+							<td><c:out value="${aluno.cpf }" /> </td>
+							<td><c:out value="${aluno.rg }" /> </td>
+							
+							 
+							 
+							<td><a href=AlunoController"?action=edit&id=<c:out value="${aluno.id}" /> "> Atualizar</a></td>
+							<td><a href=AlunoController"?action=delete&id=<c:out value="${aluno.id}" /> "> Deletar</a></td>
+							
+							  
+							 	
+							 			 
+						</tr>
+					</c:forEach>
+				</tbody>
+		</table>
+		
+		   
+		<p><a href="AlunoController?action=inserir">Adicionar usuario</a></p>
+		
+		
+	</div>	
+
+</body>
+</html>

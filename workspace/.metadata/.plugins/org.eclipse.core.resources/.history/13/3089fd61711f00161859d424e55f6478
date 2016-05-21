@@ -1,0 +1,26 @@
+package br.com.clarify.controller;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+import br.com.clarify.dao.AlunoDao;
+import br.com.clarify.dao.UsuarioDao;
+
+
+@WebServlet("/AlunoController")
+public class AlunoController extends HttpServlet{
+
+private static final long serialVersionUID = 1L;
+private static String INSERT_OR_EDIT = "/usuario.jsp";
+private static String LIST_USER = "/listarUsuarios.jsp";
+private static AlunoDao alunoDao;
+	
+
+public AlunoController(){
+	super();
+	alunoDao = new AlunoDao();
+	
+}
+
+	
+}

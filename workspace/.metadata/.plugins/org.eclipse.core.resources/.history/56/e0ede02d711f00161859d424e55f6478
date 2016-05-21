@@ -1,0 +1,13 @@
+package br.com.clarify.controller;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+
+@WebServlet("/AlunoController")
+public class AlunoController extends HttpServlet{
+
+	
+	
+	
+}
