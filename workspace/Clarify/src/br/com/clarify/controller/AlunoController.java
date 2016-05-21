@@ -1,20 +1,20 @@
 package br.com.clarify.controller;
 
 import java.io.IOException;
-
+  
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+ 
 import org.apache.catalina.connector.Request;
 
 import br.com.clarify.dao.AlunoDao;
 import br.com.clarify.dao.UsuarioDao;
 import br.com.clarify.model.Aluno;
-
+ 
  
 @WebServlet("/AlunoController")
 public class AlunoController extends HttpServlet{
@@ -109,6 +109,6 @@ private static AlunoDao alunoDao;
 				}
 			
   
-} 
+}  
 		 	
 			 
