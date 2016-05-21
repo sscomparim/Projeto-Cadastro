@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;br.com.clarify.dao.AlunoDao.getUsuario(...)&apos; to &apos;getAluno&apos;&#x0D;&#x0A;- Original project: &apos;Clarify&apos;&#x0D;&#x0A;- Original element: &apos;br.com.clarify.dao.AlunoDao.getUsuario(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;br.com.clarify.dao.AlunoDao.getAluno(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;getUsuario&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;br.com.clarify.dao{AlunoDao.java[AlunoDao~getUsuario~QResultSet;" name="getAluno" references="true" stamp="1463840672733" version="1.0"/>
+</session>

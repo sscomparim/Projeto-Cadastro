@@ -1,0 +1,105 @@
+package br.com.clarify.model;
+
+import java.util.Date;
+
+public class Aluno {
+
+	 
+	private int id;
+	private String primeiroNome;
+	private String segundoNome;
+	private String email;
+	private String curso;
+	private String cpf;
+	private String rg;
+	
+	
+	@Override
+	public String toString() {
+		
+		return "Aluno [id="+id+
+				", primeiroNome="+primeiroNome+
+				", segundoNome="+segundoNome+
+				", email="+email+
+				", curso="+curso+
+				", cpf="+cpf+ 
+				", rg="+rg+"]";
+	
+	 } 
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getPrimeiroNome() {
+		return primeiroNome;
+	}
+
+
+	public void setPrimeiroNome(String primeiroNome) {
+		this.primeiroNome = primeiroNome;
+	}
+
+
+	public String getSegundoNome() {
+		return segundoNome;
+	}
+
+
+	public void setSegundoNome(String segundoNome) {
+		this.segundoNome = segundoNome;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getCurso() {
+		return curso;
+	}
+
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+ 
+
+
+	public String getCpf() {
+		return cpf;
+	}
+
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+
+	public String getRg() {
+		return rg;
+	}
+
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	
+	
+}

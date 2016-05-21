@@ -1,0 +1,82 @@
+package br.com.clarify.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+
+import br.com.clarify.model.Aluno;
+import br.com.clarify.util.DbUtil;
+
+
+public class AlunoDao extends Dao<Aluno> {
+
+	
+	private Connection conn = null;
+	 
+	public AlunoDao() { 
+		this.conn = DbUtil.getConnection();
+	}
+	
+	
+	
+	@Override
+	public void create(Aluno t) {
+		
+		try {
+			StringBuilder sql = new StringBuilder("");
+			sql.append("INSERT INTO Aluno     ");
+			sql.append("(primeiro_nome , segundo_nome, email )   ");
+			sql.append("(curso, cpf, rg)");
+			sql.append( "VALUES ( ? , ? , ? , ?, ?, ?)    " );	
+			 
+			
+			PreparedStatement pstm = conn.prepareStatement(sql.toString());
+			
+			// os paremetros iniciam de 1
+			pstm.setString(1, object.getPrimeiroNome());
+			pstm.setString(2, object.getSegundoNome());
+			pstm.setDate(3, new java.sql.Date(object.getDataNascimento().getTime() ) );
+			pstm.setString(4, object.getEmail());
+
+			// execute a query
+			pstm.execute();
+			
+		} catch (Exception e) {
+			
+				System.out.println(e.getMessage());
+				//e.printStackTrace();
+		
+		}
+		
+		
+		
+	}
+
+	@Override
+	public Aluno find(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Aluno> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Aluno t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+}

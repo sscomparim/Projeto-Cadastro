@@ -49,8 +49,11 @@ public class UsuarioDao extends Dao<Usuario> {
 		
 	} 
 
+	
 	@Override
 	public Usuario find(int id) {
+
+		
 		Usuario user = new Usuario();
 		System.out.println(id);
 		
@@ -74,13 +77,16 @@ public class UsuarioDao extends Dao<Usuario> {
 		
 		return user;
 	}
+
+
 	
 	@Override
 	public List<Usuario> findAll() {
 
+
 		List<Usuario> usuarios = new ArrayList<>();
 		 
-		try {
+		try { 
 			
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery("select * from usuarios ");
@@ -96,10 +102,13 @@ public class UsuarioDao extends Dao<Usuario> {
 		 return usuarios; 
 	 
 	}
+	
+	
+	
 	private Usuario getUsuario(ResultSet rs) {
 
 		Usuario user = new Usuario();
-		
+		 
 		try {
 			user.setId(rs.getInt("id"));
 			user.setPrimeiroNome(rs.getString("primeiro_nome"));
@@ -110,14 +119,24 @@ public class UsuarioDao extends Dao<Usuario> {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		
+		 
 		return user;
-	}
+	} 
 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
  
-
 	@Override
 	public void update(Usuario object) {
+
 
 				StringBuilder sql = new StringBuilder("");
 				sql.append(" UPDATE usuarios set primeiro_nome = ? , ");

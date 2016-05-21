@@ -1,0 +1,53 @@
+package br.com.clarify.dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+import br.com.clarify.model.Aluno;
+import br.com.clarify.util.DbUtil;
+
+
+public class AlunoDao extends Dao<Aluno> {
+
+	
+	private Connection conn = null;
+	 
+	public AlunoDao() {
+		this.conn = DbUtil.getConnection();
+	}
+	
+	
+	@Override
+	public void create(Aluno t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Aluno find(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Aluno> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Aluno t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
+}

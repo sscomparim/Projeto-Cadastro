@@ -13,3 +13,4 @@
 0:0:0:0:0:0:0:1 - - [21/May/2016:08:45:30 -0300] "POST /Clarify/UsuarioController HTTP/1.1" 200 5600
 0:0:0:0:0:0:0:1 - - [21/May/2016:08:45:32 -0300] "GET /Clarify/UsuarioController?action=edit&id=2 HTTP/1.1" 200 1174
 0:0:0:0:0:0:0:1 - - [21/May/2016:08:45:55 -0300] "POST /Clarify/UsuarioController HTTP/1.1" 200 5628
+0:0:0:0:0:0:0:1 - - [21/May/2016:08:54:55 -0300] "GET /Clarify/ HTTP/1.1" 200 1145

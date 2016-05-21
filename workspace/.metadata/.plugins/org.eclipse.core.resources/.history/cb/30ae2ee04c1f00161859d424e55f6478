@@ -1,0 +1,42 @@
+package br.com.aluno.model;
+
+public class Usuario {
+	
+	/*
+	 * id (inteiro)
+	 * primeiroNome (string)
+	 * segundoNome (String)
+	 * email (String)
+	 * cpf (double)
+	 * rg (double)
+	 * curso (String)
+	 * @author
+	 * */
+	
+	private int id;
+	private String primeiroNome;
+	private String segundoNome;
+	private String email;
+	private String curso;
+	private double cpf;
+	private double rg;
+	
+	
+	
+	
+	
+	
+	 
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

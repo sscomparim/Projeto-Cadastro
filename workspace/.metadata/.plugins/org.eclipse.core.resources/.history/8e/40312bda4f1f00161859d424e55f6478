@@ -1,0 +1,34 @@
+package br.com.clarify.model;
+
+import java.util.Date;
+
+public class Aluno {
+
+	
+	private int id;
+	private String primeiroNome;
+	private String segundoNome;
+	private String email;
+	private String curso;
+	private double cpf;
+	private double rg;
+	
+	
+	@Override
+	public String toString() {
+		
+		return "Usuario [id="+id+
+				", primeiroNome="+primeiroNome+
+				", segundoNome="+segundoNome+
+				", email="+email+
+				", curso="+curso+
+				", cpf="+cpf+ 
+				", rg="+rg+"]";
+	
+	 } 
+	
+	
+	
+	
+	
+}

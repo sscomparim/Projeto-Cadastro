@@ -1,0 +1,27 @@
+package br.com.aluno.model;
+
+public class Usuario {
+
+	private int id;
+	private String primeiroNome;
+	private String segundoNome;
+	private String email;
+	private String curso;
+	
+	
+	
+	
+	 
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

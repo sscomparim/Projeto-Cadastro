@@ -1,9 +1,9 @@
 package br.com.clarify.model;
-
+ 
 import java.util.Date;
-
+ 
 public class Usuario {
-
+ 
 	/*
 	 * id (inteiro)
 	 * primeiroNome (string)
@@ -13,11 +13,11 @@ public class Usuario {
 	 * @author
 	 * */
 	
-	private int id;
-	private String primeiroNome;
-	private String segundoNome;
-	private Date dataNascimento;
-	private String email;
+	protected int id;
+	protected String primeiroNome;
+	protected String segundoNome;
+	protected Date dataNascimento;
+	protected String email;
 	
 	@Override
 	public String toString() {
@@ -70,6 +70,5 @@ public class Usuario {
 		this.email = email;
 	}
 	
-		
 	
 }
